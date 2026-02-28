@@ -1,0 +1,10 @@
+---
+
+- name: Configure Juniper OSPF Lab
+  hosts: juniper
+  gather_facts: false
+
+  roles:
+    - base
+    - interfaces
+    - ospf

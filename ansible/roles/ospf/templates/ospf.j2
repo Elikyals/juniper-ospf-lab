@@ -1,0 +1,12 @@
+protocols {
+    ospf {
+        area 0.0.0.0 {
+        {% for iface in ospf_interfaces %}
+            interface {{ iface }};
+        {% endfor %}
+            interface lo0.0 {
+                passive;
+            }
+        }
+    }
+}

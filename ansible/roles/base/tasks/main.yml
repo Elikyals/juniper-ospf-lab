@@ -1,0 +1,19 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for roles/base
+
+- name: Configure hostname
+  junipernetworks.junos.junos_config:
+    lines:
+      - "set system host-name {{ inventory_hostname }}"
+
+- name: Configure NTP
+  junipernetworks.junos.junos_config:
+    lines:
+      - "set system ntp server 216.239.35.0"
+
+- name: Configure DNS
+  junipernetworks.junos.junos_config:
+    lines:
+      - "set system name-server 8.8.8.8"
+      - "set system name-server 8.8.4.4"

@@ -1,0 +1,17 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for roles/ospf
+- name: Push OSPF config via template
+  junipernetworks.junos.junos_config:
+    src: "{{ role_path }}/templates/ospf.j2"
+    src_format: text
+
+- name: Verify OSPF neighbors
+  junipernetworks.junos.junos_command:
+    commands:
+      - show ospf neighbor
+  register: ospf_output
+
+- name: Display OSPF neighbors
+  debug:
+    msg: "{{ ospf_output.stdout_lines }}"

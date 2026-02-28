@@ -1,0 +1,14 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for roles/interfaces
+- name: Configure interface IPs
+  junipernetworks.junos.junos_config:
+    lines:
+      - "set interfaces {{ item.name }} unit 0 family inet address {{ item.ip }}"
+  loop: "{{ interfaces }}"
+
+- name: Configure interface descriptions
+  junipernetworks.junos.junos_config:
+    lines:
+      - "set interfaces {{ item.name }} description \"{{ item.description }}\""
+  loop: "{{ interfaces }}"

@@ -1,0 +1,20 @@
+# Ansible secrets - credentials only
+ansible/group_vars/juniper.yml
+
+# Terraform secrets
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/*.tfvars
+
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Vault
+.vault_pass
+
+# Editor
+.vscode/
+*.swp

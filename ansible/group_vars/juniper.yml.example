@@ -1,0 +1,6 @@
+ansible_user: labuser
+ansible_password: YOUR_PASSWORD_HERE
+ansible_network_os: junipernetworks.junos.junos
+ansible_connection: netconf
+ansible_netconf_ssh_config: "~/.ssh/config"
+ansible_host_key_checking: false
